@@ -148,23 +148,42 @@ class _MyAppState extends State<MyApp> {
     }
     List<Widget> deviceList = [];
     devices.forEach((element) {
-      deviceList.add(
-        InkWell(
-          key: UniqueKey(),
-          onTap: () {
-            flutterbluetoothadapter.startClient(devices.indexOf(element), true);
-          },
-          child: Container(
-            padding: EdgeInsets.all(4),
-            decoration: BoxDecoration(border: Border.all()),
-            child: Text(
-              element.name.toString() + "(" + element.address.toString() + ")",
-              style: TextStyle(fontSize: 18),
+      if(_checkMacRange(element.address.toString())) {
+        deviceList.add(
+          InkWell(
+            key: UniqueKey(),
+            onTap: () {
+              flutterbluetoothadapter.startClient(
+                  devices.indexOf(element), true);
+            },
+            child: Container(
+              padding: EdgeInsets.all(4),
+              decoration: BoxDecoration(border: Border.all()),
+              child: Text(
+                element.name.toString() + "(" + element.address.toString() +
+                    ")",
+                style: TextStyle(fontSize: 18),
+              ),
             ),
           ),
-        ),
-      );
+        );
+      }
     });
     return deviceList;
+  }
+
+  _checkMacRange(String address){
+    var piAddress = <String>{"B8:27:EB", "DC:A6:32", "E4:5F:01",
+                             "B8-27-EB", "DC-A6-32", "E4-5F-01",
+                             "B827.EB", "DCA6.32", "E45F.01",
+                             "b8:27:eb", "dc:a6:32", "e4:5f:01",
+                             "b8-27-eb", "dc-a6-32", "E4-5F-01",
+                             "b827.eb", "dca6.32", "E45F.01"};
+
+    for (var element in piAddress) {
+      if (address.startsWith(element))
+        return true;
+    }
+    return false;
   }
 }
