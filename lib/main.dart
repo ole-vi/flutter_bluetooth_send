@@ -158,7 +158,7 @@ class _MyAppState extends State<MyApp> {
             padding: EdgeInsets.all(4),
             decoration: BoxDecoration(border: Border.all()),
             child: Text(
-              element.name.toString(),
+              element.name.toString() + "(" + element.address.toString() + ")",
               style: TextStyle(fontSize: 18),
             ),
           ),
