@@ -25,6 +25,7 @@ jobs:
         flutter clean
         flutter pub get
         flutter pub upgrade
-        #flutter build appbundle --release --no-tree-shake-icons
+        flutter build appbundle --release --no-tree-shake-icons --no-sound-nu
+ll-safety
 
     #- run: flutter build apk
