@@ -25,6 +25,6 @@ jobs:
         flutter clean
         flutter pub get
         flutter pub upgrade
-        #flutter build appbundle --release --no-tree-shake-icons --no-sound-null-safety
+        #flutter build appbundle --release --no-tree-shake-icons --no-sound-null-safety #package:bluetoothadapter doesn't support null safety
 
-    - run: flutter build apk --no-sound-null-safety
+    - run: flutter build apk --no-sound-null-safety #package:bluetoothadapter doesn't support null safety
