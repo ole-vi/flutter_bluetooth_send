@@ -21,6 +21,9 @@ jobs:
     - run: flutter channel stable
     - run: flutter upgrade
 
-    - run: flutter pub get
+    - run: |
+        flutter clean
+        flutter pub get
+        flutter build appbundle --release --no-tree-shake-icons
 
     - run: flutter build apk
