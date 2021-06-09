@@ -24,6 +24,7 @@ jobs:
     - run: |
         flutter clean
         flutter pub get
+        flutter pub upgrade
         #flutter build appbundle --release --no-tree-shake-icons
 
     #- run: flutter build apk
