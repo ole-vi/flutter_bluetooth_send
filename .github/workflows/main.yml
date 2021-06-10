@@ -32,3 +32,4 @@ jobs:
     - run: |
         cd build/app/outputs/flutter-apk/
         mv app.apk blueshot.apk
+        ls -al
