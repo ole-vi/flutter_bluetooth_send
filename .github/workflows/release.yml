@@ -18,6 +18,13 @@ jobs:
     - run: flutter pub get
     - run: flutter build apk --no-sound-null-safety #package:bluetoothadapter doesn't support null safety
     - run: cd build/app/outputs && tree
+    - run: |
+        cd build/app/outputs/flutter-apk/
+        mv app.apk blueshot.apk || true
+        mv app.apk.sha1 hashblue.apk.sha1 || true
+        mv app-release.apk blue-release.apk || true
+        mv app-debug.apk blue-bug.apk || true
+        ls -al
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
