@@ -29,4 +29,6 @@ jobs:
 
     - run: flutter build apk --no-sound-null-safety #package:bluetoothadapter doesn't support null safety
     
-    - run: mv build/app/outputs/flutter-apk/app.apk build/app/outputs/flutter-apk/blueshot.apk
+    - run: |
+        cd build/app/outputs/flutter-apk/
+        mv app.apk blueshot.apk
